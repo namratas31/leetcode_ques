@@ -1,0 +1,13 @@
+ int maxProfit(vector<int>& prices) {
+        
+        int minim=prices[0],maxim,profit=0;
+        
+        for(auto i:prices)
+        {
+            minim=min(minim,i);
+            maxim=i;
+            profit=max(maxim-minim,profit);
+        }
+        
+        return profit;
+    }
