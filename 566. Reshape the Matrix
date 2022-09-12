@@ -1,0 +1,41 @@
+vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
+        
+        int n,l,m;
+          
+        l=mat.size();
+        m=mat[0].size();
+        n=l*m;
+        
+        if(n!=r*c)
+        {
+            return mat;
+        }
+        else
+        {
+            vector<vector<int>> ans(r,vector<int> (c));
+            int x=0,y=0;
+            int i,j;
+            
+            for(i=0;i<l;i++)
+            {
+                for(j=0;j<m;j++)
+                {
+                    if(y==c)
+                    {
+                        y=0;
+                        x++;
+                        ans[x][y]=mat[i][j];
+                        y++;
+                    }
+                    else
+                    {
+                        ans[x][y]=mat[i][j];
+                        y++;
+                    }
+                }
+            }
+            
+            return ans;
+        }
+            
+    }
