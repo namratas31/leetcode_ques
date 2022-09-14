@@ -1,0 +1,29 @@
+ bool isAnagram(string s, string t) {
+        
+        unordered_map<char,int>mp1;
+        unordered_map<char,int>mp2;
+        int i;
+        
+        for(i=0;i<s.length();i++)
+        {
+            mp1[s[i]]++;
+        }
+        
+        for(i=0;i<t.length();i++)
+        {
+            mp2[t[i]]++;
+        }
+        
+        if(mp1.size()!=mp2.size())
+            return 0;
+        else
+        {
+            for(auto i:mp1)
+            {
+                if(mp2[i.first]!=i.second)
+                    return 0;
+            }
+            
+            return 1;
+        }
+    }
