@@ -1,0 +1,34 @@
+ bool isValid(string s) {
+        
+        stack<char>sc;
+        
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]=='(' || s[i]=='{' || s[i]=='[')
+            {
+                sc.push(s[i]);
+            }
+            else if(!sc.empty())
+            {
+                if(s[i]==')' && sc.top()=='(' || s[i]==']' && sc.top()=='[' ||                                 s[i]=='}' && sc.top()=='{')
+                {
+                    sc.pop();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        if(sc.empty())
+        {
+            return true;
+        }
+        
+        return false;
+    }
