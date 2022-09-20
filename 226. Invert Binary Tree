@@ -1,0 +1,22 @@
+ void traversal(TreeNode* &root)
+    {
+        if(root==NULL)
+            return;
+        else
+        {
+            traversal(root->left);
+            traversal(root->right);
+            
+            TreeNode* temp;
+            temp=root->left;
+            root->left=root->right;
+            root->right=temp;
+        }
+    }
+    
+    TreeNode* invertTree(TreeNode* root) {
+        
+        traversal(root);
+            return root;
+        
+    }
