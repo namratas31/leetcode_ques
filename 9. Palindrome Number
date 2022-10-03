@@ -1,0 +1,23 @@
+ bool isPalindrome(int x) {
+        
+        if(x<0)
+            return false;
+       
+        long int val=0;
+        int temp=x;
+        
+        while(x!=0)
+        {
+             if(val*10>INT_MAX)
+                return false;
+            
+            val=val*10+x%10;
+            x=x/10;
+        }
+        
+        if(temp==val)
+            return true;
+        
+        return false;
+       
+    }
