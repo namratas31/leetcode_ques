@@ -1,0 +1,24 @@
+ int thirdMax(vector<int>& nums) {
+        
+       set <int,greater<int>>s;
+        
+        for(auto i:nums)
+        {
+            s.insert(i);
+        }
+        
+        set<int>::iterator it=s.begin();;
+        int ans;
+        
+        if(s.size()>2)
+        {
+            it++;
+            ans=*++it;
+        }
+        else
+        {
+            ans=*it;
+        }
+        
+        return ans;
+    }
