@@ -1,0 +1,32 @@
+ bool isPalindrome(string s) {
+        
+        int i;
+        string ans="";
+        string temp="";
+        
+        for(i=0;i<s.length();i++)
+        {
+            if(s[i]>96 && s[i]<123)
+            {
+                ans+=s[i];
+            }
+            else if(s[i]>64 && s[i]<91)
+            {
+                ans+=s[i]+32;
+            }
+            else if(s[i]>47 && s[i]<58)
+            {
+                ans+=s[i];
+            }
+        }
+        
+        for(i=ans.length()-1;i>=0;i--)
+        {
+            temp+=ans[i];
+        }
+        
+        if(temp==ans)
+            return 1;
+        
+        return 0;
+    }
