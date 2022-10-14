@@ -1,0 +1,19 @@
+vector<int> findDisappearedNumbers(vector<int>& nums) {
+        
+        vector<int>ans;
+        unordered_map<int,int>mp;
+        int i;
+        
+        for(i=0;i<nums.size();i++)
+        {
+            mp[nums[i]]++;
+        }
+        
+        for(i=1;i<=nums.size();i++)
+        {
+            if(mp[i]==0)
+                ans.push_back(i);
+        }
+        
+        return ans;
+    }
