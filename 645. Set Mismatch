@@ -1,0 +1,28 @@
+vector<int> findErrorNums(vector<int>& nums) {
+        
+        vector<int>ans;
+        vector<int>temp (nums.size()+1,0);
+        int first,second,i;
+        
+        for(i=0;i<nums.size();i++)
+        {
+            temp[nums[i]]++;
+        }
+        
+        for(i=1;i<temp.size();i++)
+        {
+            if(temp[i]==0)
+            {
+                second=i;
+            }
+            else if(temp[i]>1)
+            {
+                first=i;
+            }
+        }
+    
+        ans.push_back(first);
+        ans.push_back(second);
+        
+        return ans;
+    }
