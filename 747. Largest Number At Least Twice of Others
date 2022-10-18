@@ -1,0 +1,29 @@
+ int dominantIndex(vector<int>& nums) {
+        
+        int var=INT_MIN;
+        int i,index;
+        
+        for(i=0;i<nums.size();i++)
+        {
+            var=max(var,nums[i]);
+        }
+        
+        for(i=0;i<nums.size();i++)
+        {
+            if(var!=nums[i])
+            {
+                if(var>=2*nums[i])
+                {}
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                index=i;
+            }
+        }
+        
+        return index;
+    }
