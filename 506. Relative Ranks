@@ -1,0 +1,34 @@
+ vector<string> findRelativeRanks(vector<int>& score) {
+        
+        vector<string>ans(score.size());
+        map<int,int,greater<int>>mp;
+        int i,j=1;
+        
+        for(i=0;i<score.size();i++)
+        {
+            mp[score[i]]=i;
+        }
+        
+        for(auto i:mp)
+        {
+            if(j==1)
+            {
+                ans[i.second]="Gold Medal";
+            }
+            else if(j==2)
+            {
+                 ans[i.second]="Silver Medal";
+            }
+            else if(j==3)
+            {
+                  ans[i.second]="Bronze Medal";
+            }
+            else
+            {
+                ans[i.second]=to_string(j);
+            }
+            j++;
+        }
+        
+        return ans;
+    }
