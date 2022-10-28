@@ -1,0 +1,28 @@
+int lastStoneWeight(vector<int>& stones) {
+        
+        priority_queue<int>pq;
+        int temp1,temp2;
+        
+        for(int i=0;i<stones.size();i++)
+        {
+            pq.push(stones[i]);
+        }
+        
+        while(pq.size()>1)
+        {
+            temp1=pq.top();
+            pq.pop();
+            temp2=pq.top();
+            pq.pop();
+            
+           if(temp1!=temp2)
+            {
+                pq.push(abs(temp2-temp1));
+            }
+        }
+        
+        if(pq.size()!=0)
+        return pq.top();
+        
+        return 0;
+    }
