@@ -1,0 +1,37 @@
+ vector<string> commonChars(vector<string>& words) {
+        
+        unordered_map<char,int>mp1;
+        unordered_map<char,int>mp2;
+        vector<string>ans;
+        int i,j;
+        
+        for(i=0;i<words[0].size();i++)
+        {
+            mp1[words[0][i]]++;
+        }
+        
+        for(i=1;i<words.size();i++)
+        {
+            for(j=0;j<words[i].size();j++)
+            {
+                mp2[words[i][j]]++;
+            }
+            
+            for(auto k:mp1)
+            {
+                mp1[k.first]=min(mp1[k.first],mp2[k.first]);
+            }
+            
+            mp2.clear();
+        }
+        
+        for(auto k:mp1)
+        {
+            string s="";
+            s+=k.first;
+            ans.insert(ans.end(),k.second,s);
+        }
+        
+        return ans;
+        
+    }
