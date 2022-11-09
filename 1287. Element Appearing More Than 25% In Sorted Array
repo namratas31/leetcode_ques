@@ -1,0 +1,13 @@
+ int findSpecialInteger(vector<int>& arr) {
+        
+        int l=arr.size();
+        int i;
+ 
+        for(i=0;i<l-l/4;i++)
+        {
+           if(arr[i]==arr[i+l/4])
+               return arr[i];
+        }
+        
+        return -1;
+    }
