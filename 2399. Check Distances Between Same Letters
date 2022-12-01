@@ -1,0 +1,23 @@
+  bool checkDistances(string s, vector<int>& distance) {
+        
+        unordered_map<char,int>mp;
+        
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            if(mp[s[i]]==0)
+            {
+                mp[s[i]]=i;
+            }
+        }
+     
+        for(int i=0;i<s.length();i++)
+        {
+            if(mp[s[i]]-i-1==distance[s[i]-97] || mp[s[i]]-i==0)
+                continue;
+            else
+                return false;
+        }
+        
+        return true;
+    }
+};
