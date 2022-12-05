@@ -1,0 +1,19 @@
+ double average(vector<int>& salary) {
+        
+        double minn=INT_MAX,maxx=INT_MIN,sum=0;
+        
+        for(auto i:salary)
+        {
+            if(i<minn)
+                minn=i;
+            
+            if(i>maxx)
+                maxx=i;
+            
+            sum+=i;
+        }
+        
+        sum-=(maxx+minn);
+        
+        return sum/(salary.size()-2);
+    }
