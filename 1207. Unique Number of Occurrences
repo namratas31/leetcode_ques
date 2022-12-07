@@ -1,0 +1,26 @@
+ bool uniqueOccurrences(vector<int>& arr) {
+        set<int>s;
+        unordered_map<int,int>mp;
+        int sum=0;
+
+        for(int i=0;i<arr.size();i++)
+        {
+            mp[arr[i]]++;
+        }
+
+        for(auto i:mp)
+        {
+            s.insert(i.second);
+        }
+
+        for(auto i:s)
+        {
+            sum+=i;
+        }
+
+        if(sum==arr.size())
+        return true;
+
+        return false;
+    }
+};
