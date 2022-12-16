@@ -1,0 +1,25 @@
+ int getDecimalValue(ListNode* head) {
+        
+        string ans="";
+        int res=0;
+
+        ListNode* temp=head;
+
+        while(temp!=NULL)
+        {
+            ans+=to_string(temp->val);
+            temp=temp->next;
+        }
+
+        reverse(ans.begin(),ans.end());
+
+        for(int i=0;i<ans.length();i++)
+        {
+            if(ans[i]=='1')
+            {
+                res+=pow(2,i);
+            }
+        }
+
+        return res;
+    }
