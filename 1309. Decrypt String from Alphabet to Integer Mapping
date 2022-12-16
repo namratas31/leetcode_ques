@@ -1,0 +1,29 @@
+ string freqAlphabets(string s) {
+        
+        int count=0;
+        string ans="";
+
+        for(int i=0;i<s.length();i++)
+        {
+            if(i+2<s.length())
+            {
+                if(s[i+2]=='#')
+                {
+                    count=s[i]-48;
+                    count=count*10+s[i+1]-48;
+                    i=i+2;
+                    ans+=count+96;
+                }
+                else
+                {
+                    ans+=s[i]+48;
+                }
+            }
+            else
+            {
+                ans+=s[i]+48;
+            }
+        }
+
+        return ans;
+    }
