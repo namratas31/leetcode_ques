@@ -1,0 +1,47 @@
+int evalRPN(vector<string>& tokens) {
+        
+        stack<int>s;
+        int temp;
+
+        for(int i=0;i<tokens.size();i++)
+        {
+            if(tokens[i]=="+")
+            {
+                temp=int(s.top());
+                s.pop();
+                temp+=int(s.top());
+                s.pop();
+                s.push(temp);
+            }
+            else if(tokens[i]=="-")
+            {
+                temp=int(s.top());
+                s.pop();
+                temp=int(s.top())-temp;
+                s.pop();
+                s.push(temp);
+            }
+            else if(tokens[i]=="*")
+            {
+                long int temp1=int(s.top());
+                s.pop();
+                temp1*=int(s.top());
+                s.pop();
+                s.push(temp1);
+            }
+            else if(tokens[i]=="/")
+            {
+                temp=int(s.top());
+                s.pop();
+                temp=int(s.top())/temp;
+                s.pop();
+                s.push(temp);
+            }
+            else
+            {
+                s.push(stoi(tokens[i]));
+            }
+        }
+
+        return s.top();
+    }
