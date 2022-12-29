@@ -1,0 +1,7 @@
+ bool isPowerOfTwo(int n) {
+        
+        if(ceil(log2(n))!=floor(log2(n)) || n==0)
+        return false;
+
+        return true;
+    }
