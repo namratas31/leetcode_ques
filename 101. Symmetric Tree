@@ -1,0 +1,17 @@
+bool checkSymmetric(TreeNode* p, TreeNode* q) {
+        
+        if(p && q) 
+        {
+            if(p->val != q->val) 
+            return false;
+
+            return checkSymmetric(p->left,q->right) && checkSymmetric(p->right,q->left);
+        }
+            return (p == NULL && q == NULL);
+    }
+
+    bool isSymmetric(TreeNode* root) {
+
+        return root == NULL || checkSymmetric(root->left, root->right);
+    }   
+};
