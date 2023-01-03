@@ -1,0 +1,83 @@
+string addBinary(string a, string b) {
+        
+        int n=a.length()-1;
+        int m=b.length()-1;
+        string s="";
+        int c=0;
+        int x;
+
+        while(n>=0 &&m>=0)
+        {
+            x=0;
+            x+=a[n]-'0';
+            x+=b[m]-'0';
+            x+=c;
+            if(x%2==1){
+                s+='1';
+            }
+            else{
+                s+='0';
+            }
+            if(x>=2){
+                c=1;
+            }
+            else{
+                c=0;
+            }
+            n--;
+            m--;
+        }
+
+
+        while(n>=0)
+        {
+            if(c==1)
+            {
+                if(a[n]=='1')
+                {
+                    s+='0';
+                    c=1;
+                }
+                else
+                {
+                    s+='1';
+                    c=0;
+                }
+            }
+            else
+            s+=a[n];
+
+            n--;
+        }
+
+
+        while(m>=0)
+        {
+            if(c==1)
+            {
+                if(b[m]=='1')
+                {
+                    s+='0';
+                    c=1;
+                }
+                else
+                {
+                    s+='1';
+                    c=0;
+                }
+            }
+            else
+                s+=b[m];
+            
+            m--;
+        }
+
+        if(c==1)
+        {
+            s+='1';
+        }
+        
+        reverse(s.begin(),s.end());
+        return s;
+
+    }
