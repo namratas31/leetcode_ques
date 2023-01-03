@@ -1,0 +1,22 @@
+bool s(ListNode* h, TreeNode* r) {
+        if(!h) 
+        return 1;
+
+        if(!r) 
+        return 0;
+
+        if(r->val == h->val) 
+        return s(h->next,r->left) || s(h->next,r->right) ;
+
+        return 0;
+    }
+    
+    bool isSubPath(ListNode* head, TreeNode* root) {
+        if(!root) 
+        return 0;
+
+        if(s(head,root)) 
+        return 1;
+        
+        return isSubPath(head,root->left) || isSubPath(head,root->right) ;  
+    }
