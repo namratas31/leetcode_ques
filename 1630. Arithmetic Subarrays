@@ -1,0 +1,32 @@
+ vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
+        
+        vector<bool> ans;
+        for (int ind=0; ind<l.size(); ind++)
+        {
+            vector<int> dem;
+            bool flg=1;
+
+            for (int i=l[ind]; i<=r[ind]; i++)
+            {
+                dem.push_back(nums[i]);
+            }
+
+            sort(dem.begin(),dem.end());
+
+            for (int i=2; i<dem.size(); i++)
+            {
+                if (dem[i]-dem[i-1] != dem[1]-dem[0])
+                {
+                    flg=0; 
+                    break;
+                }
+            }
+
+            if(flg)
+                ans.push_back(true);
+            else    
+                ans.push_back(false);
+        }
+
+        return ans;
+    }
