@@ -1,0 +1,29 @@
+class DataStream {
+public:
+    int count=0;
+    int v,key;
+    
+    DataStream(int value, int k) {
+        
+        v=value;
+        key=k;
+    }
+    
+    bool consec(int num) {
+      
+        if(num==v)
+        {
+            count++;
+
+            if(count>=key)
+                return true;
+
+            return false;
+        }
+        else
+        {
+            count=0;
+            return false;
+        }
+    }
+};
