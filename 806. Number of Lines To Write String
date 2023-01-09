@@ -1,0 +1,27 @@
+ vector<int> numberOfLines(vector<int>& widths, string s) {
+        
+        int val=0,count=0;
+        vector<int>ans;
+
+        for(int i=0;i<s.length();i++)
+        {
+           
+            val+=widths[s[i]-97];
+            cout<<s[i]<<" "<<val<<endl;
+
+            if(val>100)
+            {
+                count++;
+                val=widths[s[i]-97];
+            }
+        }
+
+        if(val!=0)
+            count++;
+            
+        ans.push_back(count);
+        ans.push_back(val);
+
+        return ans;
+
+    }
