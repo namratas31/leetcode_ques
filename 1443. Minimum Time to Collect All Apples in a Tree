@@ -1,0 +1,25 @@
+int solve(vector<vector<int>>&adj, vector<bool>&apple, int start, int parent)
+    {
+        int time=0;
+        for(auto x:adj[start])
+        {
+            if(x!=parent)
+            time= time+solve(adj, apple, x, start);
+        }
+        if(start==0)
+        return time;
+        if(time==0 && apple[start]==false)
+        return 0;
+        else
+        return time+2;
+    }
+    
+    int minTime(int n, vector<vector<int>>& edges, vector<bool>& hasApple) {
+        vector<vector<int>>adj(n+1);
+        for(auto x:edges)
+        {
+            adj[x[1]].push_back(x[0]);
+            adj[x[0]].push_back(x[1]);
+        }
+        return solve(adj, hasApple, 0, -1);
+    }
