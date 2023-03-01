@@ -1,0 +1,23 @@
+ int mostWordsFound(vector<string>& sentences) {
+        
+        int count=0,curr=0;
+
+        for(auto i:sentences)
+        {
+            curr=0;
+            for(int j=0;j<i.length();j++)
+            {
+                if(i[j]==' ')
+                {
+                    curr++;
+                }
+            }
+
+            if(curr>count)
+            {
+                count=curr;
+            }
+        }
+
+        return count+1;
+    }
