@@ -1,0 +1,12 @@
+  string replaceDigits(string s) {
+        
+        char c;
+        
+        for(int i=1;i<s.length();i=i+2)
+        {
+            c=s[i]-48;
+            s[i]=c+s[i-1];
+        }
+
+        return s;
+    }
