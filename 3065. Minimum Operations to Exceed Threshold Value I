@@ -1,0 +1,14 @@
+int minOperations(vector<int>& nums, int k) {
+        
+        int val=0;
+
+        for(auto i:nums)
+        {
+            if(i<k)
+            {
+                val++;
+            }
+        }
+
+        return val;
+    }
