@@ -1,0 +1,13 @@
+int scoreOfString(string s) {
+        
+        int sum=0,val;
+
+        for(int i=0;i<s.length()-1;i++)
+        {
+            val=abs((int)s[i+1]-(int)s[i]);
+            sum+=val;
+        }
+
+        return sum;
+
+    }
