@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isUgly(int n) {
+        int x=n;
+        int y=-1;
+        if(n<=0) return false;
+        while(n>0)
+        {
+            if(n%2==0) n=n/2;
+            else if(n%3==0) n=n/3;
+            else if(n%5==0) n=n/5;
+            else if(n==1) return true;
+            else 
+            {
+                y=1;
+                break;
+            }
+        }
+        if(y==1) return false;
+        else return true;
+    }   
+};
