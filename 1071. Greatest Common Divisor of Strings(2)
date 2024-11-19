@@ -1,0 +1,57 @@
+ string gcdOfStrings(string str1, string str2) {
+        
+        if(str1+str2 != str2+str1)
+        {
+            return "";
+        }
+
+        int m,n;
+        m = str1.length();
+        n= str2.length();
+        string temp="",check1="",check2="";
+
+        for(int i=min(m,n);i>0;i--)
+        {
+            if(m%i==0 && n%i==0)
+            {
+                // storing x in temp
+                for(int j=0;j<i;j++)
+                {
+                    temp += str1[j];
+                }
+
+                // checking for string1
+                for(int j=0;j<m/i;j++)
+                {
+                    check1+= temp;
+                }
+
+                if(check1 != str1)
+                {
+                    check1="";
+                    check2="";
+                    continue;
+                }
+
+                // checking for string2
+
+                for(int j=0;j<n/i;j++)
+                {
+                    check2+= temp;
+                }
+
+                if(check2 != str2)
+                {
+                    check1="";
+                    check2="";
+                    continue;
+                }
+
+                return temp;
+
+            }
+        }
+
+        return "";
+    }
+};
