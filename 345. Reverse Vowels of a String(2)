@@ -1,0 +1,29 @@
+string reverseVowels(string s) {
+        
+        stack<char>st;
+
+        for(auto& itr:s)
+        {
+            if(itr=='a' || itr=='e' || itr=='i' || itr=='o' || itr=='u' ||
+            itr=='A' || itr=='E' || itr=='I' || itr=='O' || itr=='U')
+            {
+                st.push(itr);
+            }
+        }
+
+        if(!st.empty())
+        {
+            for(auto& itr: s)
+            {
+                if(itr=='a' || itr=='e' || itr=='i' || itr=='o' || itr=='u' ||
+            itr=='A' || itr=='E' || itr=='I' || itr=='O' || itr=='U')
+                {
+                    itr=st.top();
+                    st.pop();
+                }
+            }
+        }
+       
+        return s;
+    }
+};
