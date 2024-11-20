@@ -1,0 +1,37 @@
+string reverseWords(string s) {
+
+        stack<string>st;
+        string temp="";
+        string ans="";
+
+        for(auto i:s)
+        {
+            if(i==' ')
+            {
+                if(temp!="")
+                {
+                    st.push(temp);
+                    temp="";
+                }
+            }
+            else
+            {
+                temp+=i;
+            }
+        }
+
+        if(temp!="")
+        st.push(temp);
+
+        while(!st.empty())
+        {
+            ans+=st.top();
+            ans+=' ';
+            st.pop();
+        }
+
+        ans.pop_back();
+
+        return ans;
+    }
+};
