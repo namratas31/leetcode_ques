@@ -1,0 +1,65 @@
+int compress(vector<char>& chars) {
+        
+        int count=1,ans=0;
+        string temp="";
+        int i,m=chars.size();
+        vector<char>var;
+
+        if(m==1)
+        {
+            chars.push_back(chars[0]);
+            return 1;
+
+        }
+
+        for(i=0;i<m-1;i++)
+        {
+            if(chars[i]==chars[i+1])
+            {
+                count++;
+            }
+            else
+            {
+                if(count==1)
+                {
+                    ans+=1;
+                    var.push_back(chars[i]);
+                }
+                else
+                {
+                    ans+=to_string(count).length()+1;
+                    var.push_back(chars[i]);
+                    temp=to_string(count);
+                    count=1;
+
+                    for(int j=0;j<temp.length();j++)
+                    {
+                        var.push_back(temp[j]);
+                    }
+                    temp="";
+                }
+            }
+        }
+
+        if(count==1)
+        {
+            ans+=1;
+            var.push_back(chars[i]);
+        }
+        else
+        {
+            ans+=to_string(count).length()+1;
+            var.push_back(chars[i]);
+            temp=to_string(count);
+
+            for(int j=0;j<temp.length();j++)
+            {
+                var.push_back(temp[j]);
+            }
+        }
+
+        chars=var;
+
+        return ans;
+    }
+};
