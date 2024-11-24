@@ -1,0 +1,14 @@
+int largestAltitude(vector<int>& gain) {
+
+        int maxx_gain =0, sum=0;
+
+        for(auto i:gain)
+        {
+            sum+=i;
+            if(sum>maxx_gain)
+            maxx_gain = sum;
+        }
+
+        return maxx_gain;
+    }
+};
