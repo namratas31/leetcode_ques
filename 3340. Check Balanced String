@@ -1,0 +1,26 @@
+bool isBalanced(string num) {
+        
+        int sum1=0,sum2=0,temp;
+
+        for(int i=0;i<num.length();i++)
+        {
+            if(i%2==0)
+            {
+                temp=num[i]-'0';
+                sum1+=temp;
+            }
+            else
+            {
+                temp=num[i]-'0';
+                sum2+=temp;
+            }
+        }
+
+        if(sum1==sum2)
+        {
+            return true;
+        }
+
+        return false;
+    }
+};
