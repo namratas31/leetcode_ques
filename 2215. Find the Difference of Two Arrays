@@ -1,0 +1,55 @@
+vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        
+        vector<vector<int>>ans;
+        unordered_map<int,int>mp1;
+        unordered_map<int,int>mp2;
+        vector<int>temp;
+        set<int>s1;
+        set<int>s2;
+
+        for(auto i:nums1)
+        {
+            mp1[i]++;
+        }
+
+        for(auto i:nums2)
+        {
+            mp2[i]++;
+        }
+
+        for(auto i:nums1)
+        {
+            if(mp2[i]==0)
+            {
+                s1.insert(i);
+            }
+        }
+
+        for(auto i:s1)
+        {
+            temp.push_back(i);
+        }
+
+        ans.push_back(temp);
+        temp.clear();
+
+        for(auto i:nums2)
+        {
+            if(mp1[i]==0)
+            {
+                s2.insert(i);
+            }
+        }
+
+        for(auto i:s2)
+        {
+            temp.push_back(i);
+        }
+
+        ans.push_back(temp);
+
+
+        return ans;
+
+    }
+};
