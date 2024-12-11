@@ -1,0 +1,28 @@
+int longestOnes(vector<int>& nums, int k) {
+        
+        int count=0,i=0,j=0,len=0,maxx_len=0;
+
+        while(j<nums.size())
+        {
+            if(nums[j]==0)
+            {
+                count++;
+
+                while(count>k)
+                {
+                    if(nums[i]==0)
+                    {
+                        count--;
+                    }
+                    i++;
+                }
+            }
+
+            len=j-i+1;
+            j++;
+            maxx_len=max(len,maxx_len);
+        }
+
+        return maxx_len;
+    }
+};
