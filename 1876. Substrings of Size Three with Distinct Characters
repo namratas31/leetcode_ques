@@ -1,0 +1,41 @@
+ int countGoodSubstrings(string s) {
+        
+        if(s.length()<3)
+        {
+            return 0;
+        }
+
+        unordered_map<char,int>umap;
+        int count=0,j=0;
+
+        for(int i=0;i<3;i++)
+        {
+            umap[s[i]]++;
+        }
+
+        if(umap.size()==3)
+        {
+            count++;
+        }
+
+        for(int i=3;j<s.length()-3;i++)
+        {
+            umap[s[j]]--;
+            cout<<s[j]<<":";
+            if(umap[s[j]]==0)
+            {
+                umap.erase(s[j]);
+            }
+            j++;
+
+            umap[s[i]]++;
+            cout<<i<<":"<<s[i]<<":";
+            cout<<umap.size()<<endl;
+
+            if(umap.size()==3)
+                count++;
+        }
+
+        return count;
+    }
+};
