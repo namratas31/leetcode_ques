@@ -1,0 +1,21 @@
+vector<int> findWordsContaining(vector<string>& words, char x) {
+        
+        vector<int>idx;
+        int k=0;
+        
+        for(auto i:words)
+        {
+            for(auto j:i)
+            {
+                if(j==x)
+                {
+                    idx.push_back(k);
+                    break;
+                }
+            }
+            k++;
+        }
+
+        return idx;
+    }
+};
