@@ -1,0 +1,19 @@
+int minimumDifference(vector<int>& nums, int k) {
+        
+        int count=INT_MAX,j=1;
+
+        if(k==1)
+        return 0;
+
+        sort(nums.begin(),nums.end());
+        count=nums[k-1]-nums[0];
+
+        for(int i=k;i<nums.size();i++)
+        {
+            count = min(count,nums[i]-nums[j]);
+            j++;
+        }
+
+        return count;
+    }
+};
