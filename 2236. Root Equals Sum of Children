@@ -1,0 +1,10 @@
+ bool checkTree(TreeNode* root) {
+        
+        int temp;
+
+        temp = root->left->val;
+        temp+= root->right->val;
+
+        return root->val==temp;
+    }
+};
