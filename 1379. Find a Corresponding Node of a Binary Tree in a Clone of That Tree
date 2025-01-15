@@ -1,0 +1,43 @@
+  TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
+        
+        TreeNode * temp1=original;
+        TreeNode * temp2=cloned;
+        stack<TreeNode*>st1;
+        stack<TreeNode*>st2;
+        st1.push(original);
+        st2.push(cloned);
+
+        while(!st1.empty() && !st2.empty())
+        {
+            if(temp1==target)
+            {
+                return temp2;
+            }
+            else
+            {
+                st1.pop();
+                st2.pop();
+
+                if(temp1->left)
+                {
+                    st1.push(temp1->left);
+                    st2.push(temp2->left);
+                }
+                
+                if(temp1->right)
+                {
+                    st1.push(temp1->right);
+                    st2.push(temp2->right);
+                }
+
+                if(st1.top())
+                {
+                    temp1=st1.top();  
+                    temp2=st2.top();
+                }
+            }
+        }
+
+        return temp2;
+    }
+};
