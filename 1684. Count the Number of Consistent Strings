@@ -1,0 +1,29 @@
+int countConsistentStrings(string allowed, vector<string>& words) {
+        
+        unordered_map<char,int>mp;
+        int count=words.size();
+
+        for(auto i: allowed)
+        {
+            mp[i]++;
+        }
+
+        for(auto i: words)
+        {
+            for(auto j:i)
+            {
+                if(mp[j]>0)
+                {
+                    continue;
+                }
+                else
+                {
+                    count--;
+                    break;
+                }
+            }
+        }
+
+        return count;
+    }
+};
