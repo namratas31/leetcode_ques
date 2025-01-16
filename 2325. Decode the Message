@@ -1,0 +1,29 @@
+ string decodeMessage(string key, string message) {
+        
+        unordered_map<char,char>mp;
+        char ch='a';
+        string ans="";
+
+        for(auto i: key)
+        {
+            if( i>='a' && i<='z' )
+            {
+                if(mp.find(i)== mp.end())
+                {
+                    mp[i]=ch;
+                    ch++;
+                }
+            }
+        }
+
+        for(auto i: message)
+        {
+            if(i>='a' && i<='z')
+            ans+= mp[i];
+            else
+            ans+=' ';
+        }
+
+        return ans;
+    }
+};
