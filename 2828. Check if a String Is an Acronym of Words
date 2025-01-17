@@ -1,0 +1,11 @@
+ bool isAcronym(vector<string>& words, string s) {
+        
+        string temp="";
+
+        for(auto i:words)
+        {
+            temp+=i[0];
+        }
+
+        return temp==s;
+    }
