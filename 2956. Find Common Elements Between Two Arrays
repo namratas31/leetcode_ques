@@ -1,0 +1,35 @@
+ vector<int> findIntersectionValues(vector<int>& nums1, vector<int>& nums2) {
+        
+        vector<int>ans;
+        set<int>s1;
+        set<int>s2;
+        int count=0;
+
+        for(auto i:nums2)
+        {
+            s1.insert(i);
+        }
+
+        for(auto i:nums1)
+        {
+            if(s1.count(i)>0)
+            count++;
+        }
+        ans.push_back(count);
+        count=0;
+
+        for(auto i:nums1)
+        {
+            s2.insert(i);
+        }
+
+        for(auto i:nums2)
+        {
+            if(s2.count(i)>0)
+            count++;
+        }
+        ans.push_back(count);
+
+        return ans;
+    }
+};
