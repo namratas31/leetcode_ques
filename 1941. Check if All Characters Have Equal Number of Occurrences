@@ -1,0 +1,20 @@
+  bool areOccurrencesEqual(string s) {
+        
+        unordered_map<char,int>mp;
+
+        for(auto i:s)
+        {
+            mp[i]++;
+        }
+
+        int count=mp[s[0]];
+
+        for(auto i:mp)
+        {
+            if(i.second!=count)
+            return false;
+        }
+
+        return true;
+    }
+};
