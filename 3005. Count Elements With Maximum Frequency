@@ -1,0 +1,27 @@
+int maxFrequencyElements(vector<int>& nums) {
+        
+        int count=0,ans=0;
+        unordered_map<int,int>mp;
+
+        for(auto i:nums)
+        {
+            mp[i]++;
+        }
+
+        for(auto i:mp)
+        {
+            if(i.second>count)
+            {
+                count=i.second;
+                ans=i.second;
+            }
+            else if(i.second==count)
+            {
+                ans+=i.second;
+            }
+
+        }
+
+        return ans;
+    }
+};
