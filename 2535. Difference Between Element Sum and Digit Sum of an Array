@@ -1,0 +1,18 @@
+ int differenceOfSum(vector<int>& nums) {
+        
+        int elsum=0, digsum=0, val;
+
+        for(auto i:nums)
+        {
+            elsum+=i;
+            val=i;
+
+            while(val>0)
+            {
+                digsum+= val%10;
+                val=val/10;
+            }
+        }
+
+        return abs(elsum-digsum);
+    }
