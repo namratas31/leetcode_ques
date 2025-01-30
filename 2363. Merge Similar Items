@@ -1,0 +1,28 @@
+ vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1, vector<vector<int>>& items2) {
+
+        map<int,int>mp;
+        vector<vector<int>>ans;
+        vector<int>temp;
+
+        for(auto i:items1)
+        {
+            mp[i[0]]=i[1];
+        }
+
+        for(auto i:items2)
+        {
+            mp[i[0]]+=i[1];
+        }
+
+        for(auto i:mp)
+        {
+            temp.push_back(i.first);
+            temp.push_back(i.second);
+            ans.push_back(temp);
+            temp.clear();
+        }
+
+        return ans;
+        
+    }
+};
