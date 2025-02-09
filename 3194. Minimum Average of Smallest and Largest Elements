@@ -1,0 +1,14 @@
+ double minimumAverage(vector<int>& nums) {
+        
+        sort(nums.begin(),nums.end());
+
+        vector<double>average;
+        int left = 0 , right = nums.size()-1;
+        while(left<right){
+            average.push_back((nums[left]+nums[right])/2.0);
+            left++;
+            right--;
+        }
+        return *min_element(average.begin(),average.end());
+    }
+};
