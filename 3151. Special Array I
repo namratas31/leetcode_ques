@@ -1,0 +1,31 @@
+ bool isArraySpecial(vector<int>& nums) {
+        
+        bool parity;
+
+        if(nums[0]%2==0)
+        parity = true;
+        else
+        parity = false;
+
+        for(int i=1;i<nums.size();i++)
+        {
+            if(nums[i]%2==0)
+            {
+                if(parity == true)
+                return false;
+                else
+                parity = true;
+            }
+            else
+            {
+                if(parity == false)
+                return false;
+                else
+                parity = false;
+            }
+        }
+
+        return true;
+
+    }
+};
