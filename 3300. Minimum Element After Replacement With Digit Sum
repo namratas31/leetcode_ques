@@ -1,0 +1,22 @@
+int minElement(vector<int>& nums) {
+        
+        int ans;
+        int temp,digit;
+
+        for(auto i:nums)
+        {
+            temp=i;
+            digit=0;
+            while(temp!=0)
+            {
+                digit += temp%10;
+                temp/=10;
+            }
+
+            ans = min(ans,digit);
+        }
+
+        return ans;
+
+    }
+};
