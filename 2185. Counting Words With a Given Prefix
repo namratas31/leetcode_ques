@@ -1,0 +1,23 @@
+ int prefixCount(vector<string>& words, string pref) {
+
+       int count=0;
+
+        for(auto i:words)
+        {
+            int j=0;
+
+            while(j<pref.length())
+            {
+                if(i[j]!=pref[j])
+                break;
+
+                j++;
+            }
+
+            if(j==pref.length())
+            count++;
+        }
+
+       return count; 
+    }
+};
