@@ -1,0 +1,23 @@
+ int maximumNumberOfStringPairs(vector<string>& words) {
+        
+        unordered_map<string,int>mp;
+        int count=0;
+
+        for(auto i:words)
+        {
+            if(mp[i]>0)
+            {
+                count++;
+                mp[i]--;
+            }
+            else
+            {
+                reverse(i.begin(),i.end());
+                mp[i]++;
+            }
+
+        }
+
+        return count;
+    }
+};
